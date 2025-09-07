@@ -1,0 +1,28 @@
+TestNG is an annotation base testing tool/framework
+
+A testNG framework is a set of guidelines or rules used for creating and designing test cases.
+
+A framework is comprised of a combo of practices and tools that are designed to help QA professionals test more efficiently
+
+TestNG is a tool seperate from Selenium.
+
+Steps for creating the project:
+We create a standard Java project
+Add TestNG library into our project
+We import Test annotation into our class
+We execute the test cases with testNG Test
+by default the test cases are executed alphabetically
+
+The most important annotation of TestNG is @Test annotation. This is the real test case.
+
+Before and After Annotation
+Preconditions: open browser, navigate to URL
+Postconditions: closing browser, generating report
+
+
+
+
+
+
+
+
