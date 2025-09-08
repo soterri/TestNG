@@ -19,6 +19,33 @@ Before and After Annotation
 Preconditions: open browser, navigate to URL
 Postconditions: closing browser, generating report
 
+When we start using Selenium we need to:
+Add Selenium jar files
+Add Common IO - maybe later
+Copy chromedriver, geckodriver into drivers folder
+Copy configuration.properties into configs folder
+Create a new com.util package
+Copy baseClass, CommonMethods, ConfigsReader, Constants into com.utils package
+ 
+
+ before: open browser, navigate to the website
+1. Test Case: Title Validation
+after: quit browser
+
+before: open browser, navigate to the website
+2. Test Case: Logo Validation
+after: quit the browser
+
+before: open browser, navigate to the website
+3. Test Case Valid Login
+after: quit the browser
+
+Title Validation
+Logo Validation
+Login
+
+
+
 
 
 
