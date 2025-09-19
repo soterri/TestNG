@@ -46,6 +46,16 @@ Login
 
 
 
+Create a class01.xml file which will execute three class from com.class01 pkg
+DifferentAnnotations
+TaskTwo
+TestNGDemo
+but not the TC/method TitleLogoValidation 
+use exclude
+<Suite>
+	Package
+</Suite
+
 
 
 
