@@ -1,11 +1,13 @@
 package DataProvidersAndListeners;
 
+import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.pages.DashboardPageElements;
 import com.utils.CommonnMethods;
 import com.utils.ConfigsReader;
+import com.utils.ExcelUtility;
 
 public class Task extends CommonnMethods{
 
@@ -26,8 +28,22 @@ public class Task extends CommonnMethods{
 		//get employee id
 		String expectedEmpId = addEmp.employeeId.getText(); //or getAttribute("value");
 		System.out.println(expectedEmpId);
-		click(addEmp.checkboxLoginDetails);
 		
+		//click on create login details
+		click(addEmp.checkboxLoginDetails);
+		wait(1);
+		
+		sendText(addEmp.username, username);
+		sendText(addEmp.password, password);
+		sendText(addEmp.confirmPassword, password);
+		click(addEmp.saveBtn);
+		
+		//validation
+		//waitForVisibility(pdetails.lblPersonalDetails);
+		//String actualEmpId = pdetails.employeeId.getAttribute("value");
+		//Assert.assertEquals(actualEmpId, expectedEmpId, "Emp ID did not match")
+	
+		takeScreenshot(firstName+"_"+lastName);
 	}
 	
 	@DataProvider(name="userData")
@@ -38,5 +54,12 @@ public class Task extends CommonnMethods{
 		
 		};
 		return data;
+	}
+
+	@DataProvider(name="userDataFromExcel")
+	public Object[][] getDataFromExcel(){
+		return ExcelUtility.excelInto2DArray(System.getProperty("user.dir")+ "/testdata/Excel.xlsx", "Employee");
+		
+		
 	}
 }

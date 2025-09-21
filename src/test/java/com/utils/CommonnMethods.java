@@ -1,13 +1,18 @@
 package com.utils;
 
+import java.io.File;
+import java.io.IOException;
 import java.time.Duration;
 import java.util.List;
 import java.util.Set;
 
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.NoSuchFrameException;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -214,6 +219,18 @@ public class CommonnMethods extends PageInitializer {
 	public static void scrollUp(int pixel) {
 		getJSObject().executeScript("window.scrollBy(0,-" + pixel + ")");
 	}
+	
+	public static void takeScreenshot(String filename) {
+		TakesScreenshot ts = (TakesScreenshot) driver;
+		File file = ts.getScreenshotAs(OutputType.FILE);
+		
+		try {
+			FileUtils.copyFile(file, new File("Screenshot/ "+filename+" .png"));
+		} catch (Exception e) {
+			System.out.println("Cannot take screenshot");
+			e.printStackTrace();
+		}
+	}
 
 	public static void wait(int second) {
 		try {
@@ -223,6 +240,7 @@ public class CommonnMethods extends PageInitializer {
 		}
 
 	}
+	
 }
 
 //implicit wait is a type of wait that works for every command when we use find elements and element 
